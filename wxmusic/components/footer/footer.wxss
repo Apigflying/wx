@@ -1,0 +1,82 @@
+/* 底部信息 */
+.footer{
+  position:fixed;
+  bottom:0;
+  left:0;
+  height:100rpx;
+  background: #fff;
+  width:100%;
+  height:102rpx;
+  box-shadow:-2rpx 2rpx 10px 1px rgba(71,73,72,.2);
+}
+/* 左边的歌曲信息 */
+.footer-left{
+  width:570rpx;
+  height:78rpx;
+  margin:13rpx 0 0 13rpx;
+}
+/* 音乐图片 */
+.music-image{
+  width:78rpx;
+  height:78rpx;
+  float: left;
+}
+.music-image image{
+  width:100%;
+  height:100%;
+}
+/* 音乐名和作者 */
+.music-message{
+  width:calc(100% - 93rpx);
+  height:100%;
+  overflow: hidden;
+  float: left;
+  margin-left:15rpx;
+}
+.music-message .music-name{
+  display:block;
+  font-size:30rpx;
+  color:#1f2120;
+}
+.music-message .music-author{
+  display:block;
+  font-size:26rpx;
+  color:#757776;
+}
+
+/* 播放控制和列表 */
+.footer-right{
+  position: absolute;
+  right:0;
+  top:50%;
+  transform: translateY(-50%);
+  width:184rpx;
+  height:100%;
+  background:#fff;
+  box-shadow:-2rpx 4rpx 10px 1px rgba(71,73,72,.2);
+  display: flex;
+  justify-content: space-between;
+}
+.music-play{
+  width:78rpx;
+  height:78rpx;
+  margin-left:16rpx;
+  align-self: center;
+  display: flex;
+}
+.music-list{
+  width:78rpx;
+  height:78rpx;
+  align-self: center;
+  display: flex;
+}
+.music-play image{
+  width:80%;
+  height:80%;
+  margin:auto;
+}
+.music-list image{
+  width:65%;
+  height:65%;
+  margin:auto;
+}

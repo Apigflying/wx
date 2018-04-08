@@ -1,0 +1,18 @@
+<view class="header">
+    <view class="header-top">
+      <!-- 左侧菜单按钮 -->
+      <view class="header-top-left header-click">
+        <image src="../../static/list.png"></image> 
+      </view>
+      <!-- 中间的切换 -->
+      <view class="header-top-center">
+        <view class="header-click" wx:for="{{headNav}}" wx:key="{{index}}" bindtap="navChange" id="{{index}}">
+          <image class="heade-icon" src="{{currentRoute==index?item.slelectIcon:item.icon}}"></image>
+        </view>
+      </view>
+      <!-- 右侧的搜索按钮 -->
+      <view class="header-top-right header-click">
+        <image src="../../static/search-icon.png"></image>
+      </view>
+    </view>
+</view>

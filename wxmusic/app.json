@@ -1,0 +1,19 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/musiclibrary/musiclibrary",
+    "pages/musiclocal/musiclocal",
+    "pages/musicattention/musicattention",
+    "pages/musicsearch/musicsearch"
+  ],
+  "window": {
+    "navigationBarTitleText": "Demo",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#ff00ff"
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "downloadFile": 10000
+  },
+  "debug": false
+}

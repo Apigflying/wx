@@ -1,0 +1,20 @@
+<!-- 固定在底部的 -->
+  <view class="footer">
+    <view class="footer-left">
+      <view class="music-image">
+        <image src="../../static/no-pic-default.png"></image>
+      </view>
+      <view class="music-message">
+        <text class="music-name">Hotel california</text>
+        <text class="music-author">老鹰乐队</text>
+      </view>
+    </view>
+    <view class="footer-right">
+      <view class="music-play image-wrap">
+        <image src="../../static/play.png"></image>
+      </view>
+      <view class="music-list image-wrap">
+        <image src="../../static/music-list.png"></image>
+      </view>
+    </view>
+  </view>
