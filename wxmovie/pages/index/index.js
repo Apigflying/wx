@@ -1,54 +1,44 @@
 //index.js
-//获取应用实例
-const app = getApp()
-
+// const {baseUrl} = require('../../common/config/index.js').default;
+import config from '../../common/config/index.js';
+const { baseUrl } = config;
 Page({
   data: {
-    motto: 'Hello World',
-    userInfo: {},
-    hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    movies: [],
+    page: 1,
+    size: 10
   },
-  //事件处理函数
-  bindViewTap: function() {
-    wx.navigateTo({
-      url: '../logs/logs'
-    })
+  onLoad() {
+    this.getMovies()
   },
-  onLoad: function () {
-    if (app.globalData.userInfo) {
-      this.setData({
-        userInfo: app.globalData.userInfo,
-        hasUserInfo: true
-      })
-    } else if (this.data.canIUse){
-      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-      // 所以此处加入 callback 以防止这种情况
-      app.userInfoReadyCallback = res => {
-        this.setData({
-          userInfo: res.userInfo,
-          hasUserInfo: true
-        })
-      }
-    } else {
-      // 在没有 open-type=getUserInfo 版本的兼容处理
-      wx.getUserInfo({
-        success: res => {
-          app.globalData.userInfo = res.userInfo
-          this.setData({
-            userInfo: res.userInfo,
-            hasUserInfo: true
-          })
+  getMovies() {
+    let { page, size, movies } = this.data;
+    wx.request({
+      url: `${baseUrl}/list?page=${page}&size=${size}`,
+      success: ({ data: { data: list } }) => {
+        // 对数据源进行格式化
+        list = list.map(item => Object.assign(item, {
+          title: item.title.split('/')[0],
+          rate: item.rate.toFixed(1),
+          types: item.types.join('·')
+        }))
+        // 循环渲染列表
+        for (let i = 0; i < list.length; i += 2) {
+          movies.push([list[i], list[i + 1] ? list[i + 1] : null])
         }
-      })
-    }
-  },
-  getUserInfo: function(e) {
-    console.log(e)
-    app.globalData.userInfo = e.detail.userInfo
-    this.setData({
-      userInfo: e.detail.userInfo,
-      hasUserInfo: true
+        this.setData({
+          movies
+        })
+        console.log(this.data.movies)
+      }
     })
+  },
+  scrolltolower(){
+    let {page} = this.data;
+    this.setData({
+      page:++page
+    })
+    console.log(this.data.page)
+    this.getMovies();
   }
 })

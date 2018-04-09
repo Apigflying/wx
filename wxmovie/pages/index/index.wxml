@@ -1,13 +1,17 @@
 <!--index.wxml-->
-<view class="container">
-  <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
+<scroll-view scroll-y="true" lower-threshold="200" style="height:100%" bindscrolltolower="scrolltolower">
+  <view class="list-item">
+    <view class="movie-items" wx:for="{{movies}}" wx:key="{{index}}" wx:for-item="movie">
+      <view class="movie-item" wx:if="{{!!movie&&movie.length}}" wx:for="{{movie}}" wx:for-index="idx" wx:key="{{idx}}" wx:for-item="movieItem">
+        <image class="poster" mode="widthFix" src="{{movieItem.poster}}"></image>
+        <view class="item-title">
+          {{movieItem.title}}
+          <text class="rate">{{movieItem.rate}}</text>
+        </view>
+        <view class="info">
+          <text>{{movieItem.types}}-{{movieItem.year}}</text>
+        </view>
+      </view>
+    </view>
   </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
-  </view>
-</view>
+</scroll-view>

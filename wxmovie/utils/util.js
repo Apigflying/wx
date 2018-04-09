@@ -14,6 +14,18 @@ const formatNumber = n => {
   return n[1] ? n : '0' + n
 }
 
+const getData = (url) => {
+  return new Promise((resolve, reject) => {
+    wx.request({
+      url,
+      success(res) {
+        resolve(res)
+      }
+    })
+  })
+}
+
 module.exports = {
-  formatTime: formatTime
+  formatTime: formatTime,
+  getData: getData
 }
