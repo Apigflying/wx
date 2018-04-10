@@ -1,17 +1,22 @@
 <!--index.wxml-->
 <scroll-view scroll-y="true" lower-threshold="200" style="height:100%" bindscrolltolower="scrolltolower">
-  <view class="list-item">
+  <view class="list-item" wx:if="{{!!movies.length}}">
     <view class="movie-items" wx:for="{{movies}}" wx:key="{{index}}" wx:for-item="movie">
       <view class="movie-item" wx:if="{{!!movie&&movie.length}}" wx:for="{{movie}}" wx:for-index="idx" wx:key="{{idx}}" wx:for-item="movieItem">
         <image class="poster" mode="widthFix" src="{{movieItem.poster}}"></image>
-        <view class="item-title">
-          {{movieItem.title}}
-          <text class="rate">{{movieItem.rate}}</text>
+        <view class="item-title-wrap clear">
+          <view class="item-title">
+            <text class="title">{{movieItem.raw_title}}</text>
+            <text class="rate">{{movieItem.rate}}</text>
+          </view>
         </view>
         <view class="info">
           <text>{{movieItem.types}}-{{movieItem.year}}</text>
         </view>
       </view>
     </view>
+  </view>
+  <view class="loading-wrap" wx:else>
+    <image src="/assets/image/loading.png" mode="widthFix"></image>
   </view>
 </scroll-view>

@@ -29,7 +29,6 @@ Page({
         this.setData({
           movies
         })
-        console.log(this.data.movies)
       }
     })
   },
