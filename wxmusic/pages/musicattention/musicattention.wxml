@@ -1,2 +1,5 @@
-<!--pages/musicattention/musicattention.wxml-->
-<text>pages/musicattention/musicattention.wxml</text>
+<template name="musicattention">
+  <view>
+    MV
+  </view>
+</template>

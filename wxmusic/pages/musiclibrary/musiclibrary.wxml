@@ -1,2 +1,6 @@
-<!--pages/musiclibrary/musiclibrary.wxml-->
-<text>pages/musiclibrary/musiclibrary.wxml</text>
+<template name="musiclibrary">
+  <view>
+    音乐推荐
+  </view>
+</template>
+

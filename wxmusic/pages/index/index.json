@@ -7,6 +7,7 @@
   },
   "usingComponents":{
     "header":"../../components/header/header",
+    "content":"../../components/content/content",
     "footer":"../../components/footer/footer"
   }
 }

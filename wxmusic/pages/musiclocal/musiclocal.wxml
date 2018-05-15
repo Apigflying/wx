@@ -1,2 +1,6 @@
-<!--pages/musiclocal/musiclocal.wxml-->
-<text>pages/musiclocal/musiclocal.wxml</text>
+<template name="musiclocal">
+  <view>
+    本地音乐
+  </view>
+</template>
+

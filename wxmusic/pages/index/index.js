@@ -6,13 +6,29 @@ const app = getApp();
 Page({
   data: {
     motto: "Hellold",
-    currentSong: null
+    currentSong: null,
+    headerDefaultParams:{a:1},
+    currentPage:0,
+    router:[{
+      name:'musiclocal'
+    },{
+      name:'musiclibrary'
+    },{
+      name:'musicattention'
+    }]
   },
   // -----------------------事件处理函数-----------------------
   bindViewTap: function() {
     wx.reLaunch({
       url: "../logs/logs"
     });
+  },
+  setPage(e){
+    const {detail} = e;
+    this.setData({
+      currentPage:detail
+    })
+    console.log(e);
   },
   changeGlobalNum() {
     app.globalData.num++;
@@ -52,5 +68,7 @@ Page({
     });
   },
   //-----------------------钩子函数-----------------------
-  onLoad() {}
+  onLoad(e) {
+    console.log(e)
+  }
 });

@@ -14,5 +14,9 @@
       <view class="header-top-right header-click">
         <image src="../../static/search-icon.png"></image>
       </view>
+
+    </view>
+    <view class="nav">
+      <text>这里计划写二级导航</text>
     </view>
 </view>
