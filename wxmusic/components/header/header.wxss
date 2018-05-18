@@ -5,7 +5,7 @@
   background: #d33a32;
   position: fixed;
   top:0;
-  left:0;  
+  left:0;
 }
 .header-top{
   height:100%;

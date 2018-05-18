@@ -1,5 +1,7 @@
 <template name="musicattention">
   <view>
-    MV
+    {{list}}
+     <tab scroll="{{scroll}}" list="{{list}}" selected-id="{{selectedId}}" bindtabchange="handleTabChange">
+     </tab>
   </view>
 </template>

@@ -1,1 +1,3 @@
-/* components/content/content.wxss */
+.content{
+  margin-top:110rpx;
+}

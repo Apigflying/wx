@@ -1,4 +1,7 @@
-<template name="musiclocal">
+<template name="musiclocal" >
+  <view wx:for="{{secondMenu}}" wx:key="index" bindtap="toSecondPage">
+    <text>{{item.name}}</text>
+  </view>
   <view>
     本地音乐
   </view>
