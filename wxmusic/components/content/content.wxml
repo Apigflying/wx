@@ -1,9 +1,0 @@
-<import src="../../pages/musicattention/musicattention.wxml"/>
-<import src="../../pages/musiclocal/musiclocal.wxml"/>
-<import src="../../pages/musiclibrary/musiclibrary.wxml"/>
-<view class="content">
-   <tab scroll="{{scroll}}" list="{{list}}" selected-id="{{selectedId}}" bindtabchange="handleTabChange"></tab> 
-  <template wx:if="{{router[currentPage].name}}" is="{{router[currentPage].name}}"></template>
-  <!-- <template is="musiclocal"></template>
-  <template is="musiclibrary"></template> -->
-</view>

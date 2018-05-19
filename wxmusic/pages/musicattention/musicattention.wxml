@@ -1,7 +1,6 @@
-<template name="musicattention">
-  <view>
-    {{list}}
-     <tab scroll="{{scroll}}" list="{{list}}" selected-id="{{selectedId}}" bindtabchange="handleTabChange">
-     </tab>
-  </view>
-</template>
+<view>
+  <header currentRoute="{{currentRoute}}"/>
+  音乐推荐
+  <footer/>
+</view>
+

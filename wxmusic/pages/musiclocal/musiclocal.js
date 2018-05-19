@@ -5,13 +5,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-    secondMenu:[{
-      name:''
-    }]
+    currentRoute:0
   },
-  toSecondPage(e){
 
-  },
   /**
    * 生命周期函数--监听页面加载
    */

@@ -1,6 +1,0 @@
-<!--index.wxml-->
-<view class="container">
-  <header bindsetPage="setPage" />
-  <content currentPage="{{currentPage}}" router="{{router}}"/>
-  <footer/>
-</view>

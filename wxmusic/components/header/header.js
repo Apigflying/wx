@@ -1,17 +1,13 @@
 
 Component({
   properties:{
-    valFromParent:{
-      type:Object,//该字段的类型
-      value:{a:2},//这里是这个字段的默认初始值
-      observer:(newVal,oldVal)=>{
-        console.log(newVal,oldVal);
-      }
+    currentRoute:{
+      type:Number,
+      value:0
     }
   },
   // 组件的内部数据，和 properties 一同用于组件的模版渲染
   data:{
-    currentRoute:0,
     headNav:[{
       icon:'../../static/music-library-unselect.png',
       slelectIcon:'../../static/music-library-select.png',//1
@@ -27,10 +23,17 @@ Component({
   methods:{
     navChange(e){
       let index = Number(e.currentTarget.id);
-      this.triggerEvent('setPage', index);
-      this.setData({
-        currentRoute:index
-      });
+      let url = '';
+      if (index === 0) {
+        url = '/pages/musiclocal/musiclocal'
+      } else if (index === 1) {
+        url = '/pages/musiclibrary/musiclibrary'
+      } else {
+        url = '/pages/musicattention/musicattention'
+      }
+      wx.redirectTo({
+        url
+      })
     }
   }
 })

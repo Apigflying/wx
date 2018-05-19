@@ -3,9 +3,6 @@
   width:750rpx;
   height:110rpx;
   background: #d33a32;
-  position: fixed;
-  top:0;
-  left:0;
 }
 .header-top{
   height:100%;

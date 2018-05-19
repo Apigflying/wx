@@ -5,22 +5,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-    scroll: true,
-    selectedId:'11',
-    list: [{
-      id: '11',
-      title: '第一页'
-    }, {
-      id: '21',
-      title: '第二页'
-    }, {
-      id: '31',
-      title: '第三页'
-    }]
+    currentRoute: 2
   },
-  handleTabChange(e){
-    cosnole.log(e.detail);
-  },
+  
   /**
    * 生命周期函数--监听页面加载
    */

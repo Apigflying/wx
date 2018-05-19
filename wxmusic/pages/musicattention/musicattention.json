@@ -6,6 +6,8 @@
     "navigationBarTextStyle": "black"
   },
   "usingComponents": {
-    "tab": "../../components/index/tab/index"
+    "header": "../../components/header/header",
+    "tab": "../../components/index/tab/index",
+    "footer": "../../components/footer/footer"
   }
 }

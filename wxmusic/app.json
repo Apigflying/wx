@@ -1,10 +1,8 @@
 {
   "pages": [
-    "pages/index/index",
-    "pages/musiclibrary/musiclibrary",
     "pages/musiclocal/musiclocal",
-    "pages/musicattention/musicattention",
-    "pages/musicsearch/musicsearch"
+    "pages/musiclibrary/musiclibrary",
+    "pages/musicattention/musicattention"
   ],
   "window": {
     "navigationBarTitleText": "Demo",

@@ -1,6 +1,0 @@
-{
-  "component": true,
-  "usingComponents": {
-    "tab":"../index/tab/index"
-  }
-}
