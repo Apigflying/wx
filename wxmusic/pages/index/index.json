@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "header": "../../components/header/header",
+    "footer":"../../components/footer/footer",
+    "setting": "../../components/main/setting/setting",
+    "location":"../../components/main/location/location",
+    "library": "../../components/main/library/library",
+    "recommend": "../../components/main/recommend/recommend"
+  }
+}

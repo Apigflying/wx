@@ -1,7 +1,7 @@
 <view class="header">
     <view class="header-top">
       <!-- 左侧菜单按钮 -->
-      <view class="header-top-left header-click">
+      <view class="header-top-left header-click" bindtap="showSetting">
         <image src="../../static/list.png"></image> 
       </view>
       <!-- 中间的切换 -->

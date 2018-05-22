@@ -1,7 +1,0 @@
-<view>
-  <header currentRoute="{{currentRoute}}"/>
-  本地音乐
-
-  <footer/>
-</view>
-

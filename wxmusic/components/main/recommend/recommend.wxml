@@ -1,0 +1,3 @@
+<view class="recommendWrap">
+  <tab className="recommend" list="{{tabList}}" scroll="{{isScroll}}" selected-id="{{selectedId}}"/>
+</view>

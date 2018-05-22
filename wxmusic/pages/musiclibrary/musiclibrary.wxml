@@ -1,6 +1,0 @@
-<view>
-  <header currentRoute="{{currentRoute}}"/>
-  音乐库
-  <footer/>
-</view>
-

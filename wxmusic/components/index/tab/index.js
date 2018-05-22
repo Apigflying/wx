@@ -21,6 +21,10 @@ Component({
     selectedId: {
       type: [String, Number],
       value: ''
+    },
+    className: {
+      type: String,
+      value: ''
     }
   },
 
@@ -32,7 +36,7 @@ Component({
         selectedId
       });
 
-      
+
       this.triggerEvent('tabchange', selectedId);
     }
   }

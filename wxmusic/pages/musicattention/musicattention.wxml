@@ -1,9 +1,0 @@
-<view>
-  <header currentRoute="{{currentRoute}}"/>
-  音乐推荐
-  <view>
-    这是内容
-  </view>
-  <footer/>
-</view>
-

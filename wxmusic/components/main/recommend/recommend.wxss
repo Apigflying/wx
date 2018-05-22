@@ -1,0 +1,20 @@
+/* tab样式 */
+.recommend .zan-tab__bd{
+  background: #de4138;
+  color:#fff;
+  height:70rpx !important;
+  border-bottom: none;
+}
+/* tab没有被选中的样式 */
+.recommend .zan-tab__title {
+  color:#fff;
+  font-weight: lighter;
+  height:70rpx;
+  line-height: 70rpx;
+}
+/* tab项在选中时的样式 */
+.recommend .zan-tab__item--selected .zan-tab__title {
+  color:#fff;
+  border-bottom:2px solid #fff;
+  font-weight: bold;
+}

@@ -2,7 +2,11 @@
 .header{
   width:750rpx;
   height:110rpx;
-  background: #d33a32;
+  background: #de4138;
+  position: fixed;
+  top:0;
+  left:0;
+  z-index: 5;
 }
 .header-top{
   height:100%;

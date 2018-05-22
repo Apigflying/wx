@@ -1,0 +1,13 @@
+<view class="settingWrap {{isSettingShow?'active':''}}" bindtap="closeSetting" id="settingWrap">
+  <view class="settingContent">
+    <view class="content-header">
+      这里是头部
+    </view>
+    <view class="content-main">
+      这里是内容
+    </view>
+    <view class="content-footer">
+      这里是底部
+    </view>
+  </view>
+</view>

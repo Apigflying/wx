@@ -1,0 +1,9 @@
+<view>
+  <header currentRoute="{{currentRoute}}" bindsetRoute="setRoute" bindshowSetting="showSetting"/>
+  <setting wx:if="{{isSettingShow}}" isSettingShow="{{isSettingShow}}" bindcloseSetting="closeSetting"/>
+  <location wx:if="{{currentRoute===0}}"/>
+  <library wx:elif="{{currentRoute===1}}"/>
+  <recommend wx:else="{{currentRoute===2}}"/>
+
+  <footer/>
+</view>

@@ -6,7 +6,6 @@
   height:100rpx;
   background: #fff;
   width:100%;
-  height:102rpx;
   box-shadow:-2rpx 2rpx 10px 1px rgba(71,73,72,.2);
 }
 /* 左边的歌曲信息 */
