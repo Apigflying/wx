@@ -1,3 +1,28 @@
 <view class="recommendWrap">
-  <tab className="recommend" list="{{tabList}}" scroll="{{isScroll}}" selected-id="{{selectedId}}"/>
+  <tab className="recommend" list="{{tabList}}" scroll="{{isScroll}}" selected-id="{{selectedId}}" />
+  <view class="recommendContent">
+    <view>1</view>
+    <view>1</view>
+    <view>1</view>
+    <view>1</view>
+    <view>1</view>
+    <view>1</view>
+    <view>1</view>
+    <view>1</view>
+    <view>1</view>
+    <view>1</view>
+    <view>1</view>
+    <view>1</view>
+    <view>1</view>
+    <view>1</view>
+    <view>1</view>
+    <view>1</view>
+    <view>1</view>
+    <view>1</view>
+    <view>1</view>
+    <view>1</view>
+    <view>1</view>
+    <view>1</view>
+  </view>
+
 </view>

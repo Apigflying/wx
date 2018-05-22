@@ -1,17 +1,23 @@
 .libraryWrap {
-   padding-top:110rpx; 
+  padding-top: 110rpx;
   background: #f3f4f6;
-  padding-bottom:100rpx;
+  padding-bottom: 100rpx;
+}
+
+.library {
+  position: fixed;
+  top: 110rpx;
+  left: 0;
+  z-index: 4;
+}
+
+.libraryContent {
+  position: relative;
+  padding-top: calc(70rpx + 20rpx);
 }
 
 /* tab样式覆盖 */
 
-.library{
-  position: fixed;
-  top:110rpx;
-  left:0;
-  z-index: 4;
-}
 .library .zan-tab__bd {
   border-bottom: none;
   background: #de4138;
@@ -37,11 +43,6 @@
 
 /* 音乐库内容 */
 
-.libraryContent {
-  position: relative;
-  padding-top: 93rpx;
-}
-
 .content-bgd {
   position: absolute;
   top: 0;
@@ -55,8 +56,8 @@
 /* banner轮播图 */
 
 .tj-banner {
-  width: 100%;
-  height: 270rpx;
+  /* width: 100%; */
+  /* height: 270rpx; */
   margin: 0 auto;
   overflow: hidden;
 }
@@ -69,10 +70,11 @@
 
 .banner-wrap image {
   display: block;
-  width: 725rpx;
+  /* width: 725rpx; */
   height: 100%;
   margin: 0 auto;
-  border-radius: 10rpx;
+  border-radius: 10px;
+  overflow: hidden;
 }
 
 /* 中间的四个按钮 */
@@ -108,8 +110,78 @@
   font-size: 25rpx;
 }
 
-.recommend-text{
+/* 推荐歌曲 */
+
+.tj-rp-header {
+  font-weight: bolder;
+  font-size: 42rpx;
+  padding: 27rpx 12rpx;
+}
+
+.header-text {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.arrow {
+  display: inline-block;
+  vertical-align: middle;
+  padding-left: 15rpx;
+  font-size: 30rpx;
+  color: #7d7e80;
+  font-weight: lighter;
+}
+
+.tj-rp-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-content: space-between;
+  padding: 0 12rpx;
+}
+
+.rpc-item {
+  width: 32%;
+  position: relative;
+}
+
+/* 播放次数的图标 */
+
+.play-amount {
+  position: absolute;
+  top: 0rpx;
+  right: 10rpx;
+}
+
+.play-amount-icon {
+  width: 24rpx;
+  height: 24rpx;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.play-amount-num {
+  font-size: 20rpx;
+  color: #fff;
+  display: inline-block;
+  margin-left: 6rpx;
+  vertical-align: middle;
+  font-weight: lighter;
+}
+
+.tj-rp-img {
+  width: 100%;
+  height: 239rpx;
+  border-radius: 12rpx;
+  margin: 0 auto;
+}
+
+.recommend-text {
+  font-size: 30rpx;
+  overflow: hidden;
+  margin-bottom: 18rpx;
+  /* padding-bottom: 18rpx; */
   display: -webkit-box;
-  -webkit-line-clamp:2;
-  -webkit-box-orient:vertical;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 }

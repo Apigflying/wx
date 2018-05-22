@@ -1,19 +1,19 @@
 <view class="libraryWrap">
+  <!-- 二级导航切换组件 -->
   <tab className="library" list="{{tabList}}" selected-id="{{selectedId}}" bindtabchange="tabChange" />
+  <!-- 导航对应的页面 -->
   <view class="libraryContent">
     <template is="{{selectedId}}" data="{{swiper}}" />
   </view>
 </view>
 
+<!-- 推荐模板 -->
 <template name="tj">
   <view class="content-bgd"></view>
   <!-- banner切换图 -->
   <swiper class="tj-banner" indicator-dots="{{swiper.idots}}" autoplay="{{swiper.autoplay}}" indicator-color="{{swiper.dotColor}}" indicator-active-color="{{swiper.dotActiveColor}}" current="{{swiper.current}}" circular="{{swiper.circular}}">
-    <swiper-item class="banner-wrap">
-      <image src="../../../devImage/tj/tj-banner.png"></image>
-    </swiper-item>
-    <swiper-item class="banner-wrap">
-      <image src="../../../devImage/tj/tj-banner.png"></image>
+    <swiper-item class="banner-wrap" wx:for="{{swiper.swiperList}}" wx:key="{{index}}">
+      <image src="{{item.picUrl}}" mode="aspectFit" data-url="{{item.url}}" bindtap="toThePage"></image>
     </swiper-item>
   </swiper>
   <!-- 推荐中间的四个按钮 -->
@@ -35,25 +35,34 @@
       <text class="tj-middle-content-text">排行榜</text>
     </view>
   </view>
+
   <!-- 推荐歌单 -->
   <view class="tj-recommend-playlist">
-    <view class="recommend-playlist-header">
-      推荐歌单
+    <view class="tj-rp-header">
+      <text class="header-text">推荐歌单</text>
       <text class="arrow">></text>
     </view>
-    <view class="recommend-playlist-content">
-      <view>
-        <image src="../../../devImage/tj/tj-recommend-playlist-content-image-1.png"></image>
-        <text class="recommend-text">会变魔法的双子，是最特别的存在</text>
+    <view class="tj-rp-content">
+      <!-- 歌单项 -->
+      <view class="rpc-item">
+        <image src="../../../devImage/tj/tj-recommend-playlist-content-image-1.png" class="tj-rp-img" mode="aspectFit"></image>
+        <!-- 播放次数的图标 -->
+        <view class="play-amount">
+          <image class="play-amount-icon" src="../../../static/icons/listen.png"></image>
+          <text class="play-amount-num">25万</text>
+        </view>
+        <text class="recommend-text">会变魔法</text>
       </view>
     </view>
   </view>
 </template>
 
+<!-- 朋友模板 -->
 <template name="py">
   这里是朋友
 </template>
 
+<!-- 电台模板 -->
 <template name="dt">
   这里是电台
 </template>

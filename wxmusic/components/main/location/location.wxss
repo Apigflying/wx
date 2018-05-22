@@ -1,1 +1,10 @@
-/* components/main/location/location.wxss */
+.locationWrap {
+  padding-top: 110rpx;
+  background: #f3f4f6;
+  padding-bottom: 100rpx;
+}
+
+.locationContent {
+  position: relative;
+  /* padding-top: 93rpx; */
+}
