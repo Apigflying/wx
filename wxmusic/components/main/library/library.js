@@ -27,12 +27,14 @@ Component({
       dotColor: 'rgba(255,255,255,0.4)',// 面板指示点默认颜色
       dotActiveColor: 'rgba(229,71,60,0.8)' // 面板指示点选中的颜色
     },
-
+    tjpersonalized:[],// 推荐歌单
   },
   // 钩子函数
   ready() {
     // 获取推荐的banner
     this.getBanners();
+    // 获取推荐歌单
+    this.getTjPersonalized();
   },
   methods: {
     //========事件========\\
@@ -48,18 +50,33 @@ Component({
       });
     },
     //========API=========\\
-    getBanners() {
+    getBanners() {// 获取中间的banner
+      let that = this;
       wx.request({
         url: `${baseUrl}/banner`,
-        success:(res)=>{
+        success(res){
           let { data: { banners } } = res;
-          let {swiper} = this.data;
+          let {swiper} = that.data;
           swiper.swiperList = banners;
-          this.setData({
+          that.setData({
             swiper
           });
         }
       })
     },
+    getTjPersonalized(){// 获取推荐歌单
+      let that = this;
+      wx.request({
+        url: `${baseUrl}/personalized`,
+        success:(res)=>{
+          let {data:{result}} = res;
+          let { tjpersonalized } = that.data;
+          tjpersonalized = result.slice(0,6);// 只保留前6个
+          that.setData({
+            tjpersonalized
+          });
+        }
+      })
+    }
   }
 })

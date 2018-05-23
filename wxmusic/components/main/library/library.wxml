@@ -3,7 +3,7 @@
   <tab className="library" list="{{tabList}}" selected-id="{{selectedId}}" bindtabchange="tabChange" />
   <!-- 导航对应的页面 -->
   <view class="libraryContent">
-    <template is="{{selectedId}}" data="{{swiper}}" />
+    <template is="{{selectedId}}" data="{{swiper,tjpersonalized}}" />
   </view>
 </view>
 
@@ -44,14 +44,14 @@
     </view>
     <view class="tj-rp-content">
       <!-- 歌单项 -->
-      <view class="rpc-item">
-        <image src="../../../devImage/tj/tj-recommend-playlist-content-image-1.png" class="tj-rp-img" mode="aspectFit"></image>
+      <view class="rpc-item" wx:for="{{tjpersonalized}}" wx:key="{{index}}">
+        <image src="{{item.picUrl}}" data-id="{{item.id}}" class="tj-rp-img" mode="aspectFit"></image>
         <!-- 播放次数的图标 -->
         <view class="play-amount">
           <image class="play-amount-icon" src="../../../static/icons/listen.png"></image>
-          <text class="play-amount-num">25万</text>
+          <text class="play-amount-num">{{item.playCount}}</text>
         </view>
-        <text class="recommend-text">会变魔法</text>
+        <text class="recommend-text">{{item.name}}</text>
       </view>
     </view>
   </view>
