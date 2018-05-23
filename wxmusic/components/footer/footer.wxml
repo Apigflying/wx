@@ -2,11 +2,12 @@
 <view class="footer">
   <view class="footer-left">
     <view class="music-image">
-      <image src="../../static/no-pic-default.png"></image>
+      <image wx:if="{{!!playSong}}" src="{{playSong.picUrl}}"></image>
+      <image wx:else src="../../static/no-pic-default.png"></image>
     </view>
     <view class="music-message">
-      <text class="music-name">Hotel california</text>
-      <text class="music-author">老鹰乐队</text>
+      <text class="music-name">{{playSong?playSong.name:'暂无歌曲'}}</text>
+      <text class="music-author">{{playSong?playSong.singer:''}}</text>
     </view>
   </view>
   <view class="footer-right">

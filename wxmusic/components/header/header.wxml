@@ -11,7 +11,7 @@
         </view>
       </view>
       <!-- 右侧的搜索按钮 -->
-      <view class="header-top-right header-click">
+      <view class="header-top-right header-click" bindtap="toSearch">
         <image src="../../static/search-icon.png"></image>
       </view>
     </view>

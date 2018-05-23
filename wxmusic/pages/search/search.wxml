@@ -1,0 +1,4 @@
+<view>
+  这里是搜索页面
+  <button bindtap="toIndex">跳转回到主页</button>
+</view>

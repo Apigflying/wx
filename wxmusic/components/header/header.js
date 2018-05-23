@@ -27,6 +27,11 @@ Component({
     },
     showSetting() {
       this.triggerEvent('showSetting')
+    }, 
+    toSearch() {
+      wx.redirectTo({
+        url: '../../pages/search/search'
+      })
     }
   }
 })
