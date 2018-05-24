@@ -1,21 +1,70 @@
+const { baseUrl } = require('./utils/base.js');
+const { request } = require('./utils/fetch.js');
+// const footer = require('./components/footer/footer.js');
+// console.log(footer);
 //播放音乐的实例
 const innerAudioContext = wx.createInnerAudioContext();
 innerAudioContext.onPlay(() => {
-  console.log('开始播放')
+  console.log('播放')
 })
-innerAudioContext.onError((res) => {
-  console.log(res.errMsg)
-  console.log(res.errCode)
+innerAudioContext.onPause(() => {
+  console.log('暂停')
 })
-
 App({
+  onLaunch() {
+    // console.log('onLaunch');
+    // console.log(this);
+  },
   onShow() {
-
+    console.log('onShow');
+    this.palySong(22576669);
   },
   onHide() {
-
+    console.log('onHide');
   },
-  data: {
-    innerAudioContext
-  }
+  globalData: {
+    innerAudioContext,
+    playSong: null
+  },
+  changePlayState(ctrlBtn) {
+    let isPlaying = !innerAudioContext.paused; // 是否正在播放
+    if (isPlaying) {
+      innerAudioContext.pause();
+    } else {
+      innerAudioContext.play();
+    };
+    // 切换btn按钮的图标
+    ctrlBtn();
+  },
+  // 通过歌曲的id获取歌曲的url，可以利用url播放音乐
+  async palySong(songId) {
+    try {
+      let { data: { data: songUrlList } } = await request(`${baseUrl}/music/url?id=${songId}`);
+      let { data: { songs: songMesList } } = await request(`${baseUrl}/song/detail?ids=${songId}`);
+      // console.log('歌曲信息', songMesList);
+      // console.log('播放的url', songUrlList);
+      if (songMesList.length && songUrlList) {
+        let playSong = {
+          url: songUrlList[0].url,// 歌曲的src，用于播放歌曲
+          name: songMesList[0].name,// 歌名
+          picUrl: songMesList[0].al.picUrl,// 歌曲图片地址
+          singer: songMesList[0].ar.map(item => item.name).join('/') // 歌手名字
+        };
+        /*
+          虽然给playSong赋值了，但是
+          在components/footer中，传递过去的playSong依旧是初始化时候的null。所以footer获取不到playSong，
+          故在fotter的ready中获取当前app实例，此时的app.globalData.playSong已经被成功赋值
+
+          总结：
+            app根实例和component中间隔了一层page，向component中传递状态，需要在component的ready中调用getApp()获取已经加载数据后的globalData
+        */
+        this.globalData.playSong = playSong;
+        innerAudioContext.src = playSong.url;
+      } else {
+        console.log('歌曲不存在');
+      }
+    } catch (e) {
+      console.error(e);
+    }
+  },
 })

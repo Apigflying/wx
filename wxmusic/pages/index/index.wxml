@@ -4,6 +4,5 @@
   <location wx:if="{{currentRoute===0}}"/>
   <library wx:elif="{{currentRoute===1}}"/>
   <recommend wx:else="{{currentRoute===2}}"/>
-
   <footer/>
 </view>
