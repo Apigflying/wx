@@ -1,6 +1,6 @@
-const { baseUrl } = require('../../../utils/base.js');
 const { toQueryString } = require('../../../utils/tools.js');
-console.log(baseUrl);
+const { request } = require('../../../utils/fetch.js');
+
 Component({
   properties: {
 
@@ -59,35 +59,31 @@ Component({
       });
     },
     //========API=========\\
-    getBanners() {// 获取中间的banner
-      let that = this;
-      wx.request({
-        url: `${baseUrl}/banner`,
-        success(res){
-          let { data: { banners } } = res;
-          let {swiper} = that.data;
-          swiper.swiperList = banners;
-          that.setData({
-            swiper
-          });
-        }
-      })
+    async getBanners() {// 获取中间的banner
+      try{
+        let { data: { banners } } = await request('banner');
+        let { swiper } = this.data;
+        swiper.swiperList = banners;
+        this.setData({
+          swiper
+        });
+      }catch(e){
+        console.error(e);
+      }
     },
-    getTjPersonalized(){// 获取推荐歌单
-      let that = this;
-      wx.request({
-        url: `${baseUrl}/personalized`,
-        success:(res)=>{
-          let {data:{result}} = res;
-          let { tjpersonalized } = that.data;
-          // tjpersonalized = result;
-          tjpersonalized = result.slice(0,6);// 只保留前6个
-          console.log(tjpersonalized);
-          that.setData({
-            tjpersonalized
-          });
-        }
-      })
+    async getTjPersonalized(){// 获取推荐歌单
+      try{
+        let { data: { result } } = await request('personalized');
+        let { tjpersonalized } = this.data;
+        // tjpersonalized = result;
+        tjpersonalized = result.slice(0, 6);// 只保留前6个
+        console.log(tjpersonalized);
+        this.setData({
+          tjpersonalized
+        });
+      }catch(e){
+        console.error(e);
+      }
     }
   }
 })

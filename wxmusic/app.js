@@ -1,4 +1,3 @@
-const { baseUrl } = require('./utils/base.js');
 const { request } = require('./utils/fetch.js');
 //播放音乐的实例
 const innerAudioContext = wx.createInnerAudioContext();
@@ -41,8 +40,8 @@ App({
   // 通过歌曲的id获取歌曲的url，可以利用url播放音乐
   async palySong(songId) {
     try {
-      let { data: { data: songUrlList } } = await request(`${baseUrl}/music/url?id=${songId}`);
-      let { data: { songs: songMesList } } = await request(`${baseUrl}/song/detail?ids=${songId}`);
+      let { data: { data: songUrlList } } = await request(`music/url?id=${songId}`);
+      let { data: { songs: songMesList } } = await request(`song/detail?ids=${songId}`);
       // console.log('歌曲信息', songMesList);
       // console.log('播放的url', songUrlList);
       if (songMesList.length && songUrlList) {

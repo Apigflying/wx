@@ -1,4 +1,6 @@
-// pages/detail/detail.js
+// 歌单详情页
+const { request } = require('../../utils/fetch.js');
+
 Page({
 
   /**

@@ -1,8 +1,3 @@
-const { baseUrl } = require('../../utils/base.js');
-const { request } = require('../../utils/fetch.js');
-
-// 获取全局app中，
-
 Component({
   data: {
     /* {url:".mp3", name: "默", picUrl: ".jpg", singer: "那英"}*/
