@@ -10,7 +10,7 @@ Component({
     isPause: true
   },
   ready() {
-    // 同步app内的状态
+    // 在切换不同page页面时，同步app内的状态
     const app = getApp();
     let { globalData: { innerAudioContext, playSong } } = app;
       this.setData({
@@ -30,8 +30,9 @@ Component({
       app.changePlayState(this.ctrlBtn.bind(this));
     },
     // 通过isPause的状态来切换按钮的展示
-    ctrlBtn() {
-      let isPause = !this.data.isPause;
+    ctrlBtn(isPause) {
+      // let isPause = !this.data.isPause;
+      // console.log(isPause, isPlaying)
       this.setData({
         isPause
       })

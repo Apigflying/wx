@@ -1,4 +1,5 @@
 const { baseUrl } = require('../../../utils/base.js');
+const { toQueryString } = require('../../../utils/tools.js');
 console.log(baseUrl);
 Component({
   properties: {
@@ -40,7 +41,15 @@ Component({
     //========事件========\\
     // 点击图片事件
     toThePage(e){
-      console.log(e);
+      let id = e.currentTarget.dataset.item;
+      let tjpersonalized = this.data.tjpersonalized;
+      let songItem = tjpersonalized.find(item=>item.id===id);
+      console.log(songItem)
+      let songItemString = toQueryString(songItem);
+      // console.log(songItemString);
+      wx.navigateTo({
+        url: `/pages/detail/detail?${songItemString}`,
+      })
     },
     // 二级导航切换事件
     tabChange(e) {
@@ -71,7 +80,9 @@ Component({
         success:(res)=>{
           let {data:{result}} = res;
           let { tjpersonalized } = that.data;
+          // tjpersonalized = result;
           tjpersonalized = result.slice(0,6);// 只保留前6个
+          console.log(tjpersonalized);
           that.setData({
             tjpersonalized
           });

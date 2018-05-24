@@ -1,0 +1,5 @@
+<view>
+  这里是详情页
+  <button bindtap="toIndex">跳转回到主页</button>
+  <footer/>
+</view>

@@ -44,8 +44,8 @@
     </view>
     <view class="tj-rp-content">
       <!-- 歌单项 -->
-      <view class="rpc-item" wx:for="{{tjpersonalized}}" wx:key="{{index}}">
-        <image lazy-load="true" src="{{item.picUrl}}" data-id="{{item.id}}" class="tj-rp-img" mode="aspectFit"></image>
+      <view class="rpc-item" wx:for="{{tjpersonalized}}" wx:key="{{index}}" bindtap="toThePage" data-item="{{item.id}}">
+        <image lazy-load="true" src="{{item.picUrl}}" class="tj-rp-img" mode="aspectFit"></image>
         <!-- 播放次数的图标 -->
         <view class="play-amount">
           <image class="play-amount-icon" src="../../../static/icons/listen.png"></image>

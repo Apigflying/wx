@@ -29,8 +29,11 @@ Component({
       this.triggerEvent('showSetting')
     }, 
     toSearch() {
-      wx.redirectTo({
-        url: '../../pages/search/search'
+      // wx.redirectTo({
+      //   url: '../../pages/search/search'
+      // })
+      wx.navigateTo({
+        url: `/pages/search/search`,
       })
     }
   }

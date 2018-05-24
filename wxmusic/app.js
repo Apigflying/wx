@@ -1,15 +1,17 @@
 const { baseUrl } = require('./utils/base.js');
 const { request } = require('./utils/fetch.js');
-// const footer = require('./components/footer/footer.js');
-// console.log(footer);
 //播放音乐的实例
 const innerAudioContext = wx.createInnerAudioContext();
 innerAudioContext.onPlay(() => {
-  console.log('播放')
+  console.log('播放');
 })
 innerAudioContext.onPause(() => {
   console.log('暂停')
 })
+innerAudioContext.onEnded(()=>{
+  console.log('播放完了')
+})
+// console.log(app);
 App({
   onLaunch() {
     // console.log('onLaunch');
@@ -34,7 +36,7 @@ App({
       innerAudioContext.play();
     };
     // 切换btn按钮的图标
-    ctrlBtn();
+    ctrlBtn(isPlaying);
   },
   // 通过歌曲的id获取歌曲的url，可以利用url播放音乐
   async palySong(songId) {
@@ -59,7 +61,7 @@ App({
             app根实例和component中间隔了一层page，向component中传递状态，需要在component的ready中调用getApp()获取已经加载数据后的globalData
         */
         this.globalData.playSong = playSong;
-        innerAudioContext.src = playSong.url;
+        innerAudioContext.src = playSong.url;      
       } else {
         console.log('歌曲不存在');
       }
