@@ -13,7 +13,7 @@
   <!-- banner切换图 -->
   <swiper class="tj-banner" indicator-dots="{{swiper.idots}}" autoplay="{{swiper.autoplay}}" indicator-color="{{swiper.dotColor}}" indicator-active-color="{{swiper.dotActiveColor}}" current="{{swiper.current}}" circular="{{swiper.circular}}">
     <swiper-item class="banner-wrap" wx:for="{{swiper.swiperList}}" wx:key="{{index}}">
-      <image src="{{item.picUrl}}" mode="aspectFit" data-url="{{item.url}}" bindtap="toThePage"></image>
+      <image src="{{item.picUrl}}" mode="aspectFit" data-url="{{item.url}}"></image>
     </swiper-item>
   </swiper>
   <!-- 推荐中间的四个按钮 -->

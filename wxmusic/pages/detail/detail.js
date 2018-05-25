@@ -10,6 +10,9 @@ Page({
 
   },
   toIndex() {
+    // wx.redirectTo({
+    //   url: '/pages/index/index'
+    // })
     wx.navigateBack()
   },
   /**

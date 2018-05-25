@@ -1,15 +1,21 @@
 const { request } = require('./utils/fetch.js');
 //播放音乐的实例
 const innerAudioContext = wx.createInnerAudioContext();
+// let ctrlBtnApp = null;
+// let isPlaying = !innerAudioContext.paused;
 innerAudioContext.onPlay(() => {
   console.log('播放');
 })
 innerAudioContext.onPause(() => {
   console.log('暂停')
+  // ctrlBtnApp(isPlaying)
 })
 innerAudioContext.onEnded(()=>{
   console.log('播放完了')
+  // ctrlBtnApp(!isPlaying);
 })
+
+
 // console.log(app);
 App({
   onLaunch() {
@@ -27,15 +33,14 @@ App({
     innerAudioContext,
     playSong: null
   },
-  changePlayState(ctrlBtn) {
+  changePlayState() {
     let isPlaying = !innerAudioContext.paused; // 是否正在播放
     if (isPlaying) {
       innerAudioContext.pause();
     } else {
       innerAudioContext.play();
     };
-    // 切换btn按钮的图标
-    ctrlBtn(isPlaying);
+    return isPlaying;
   },
   // 通过歌曲的id获取歌曲的url，可以利用url播放音乐
   async palySong(songId) {

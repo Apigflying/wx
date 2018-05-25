@@ -2,7 +2,7 @@ const { baseUrl } = require('base.js');
 const request = (realUrl, option = {}) => {
   let url = `${baseUrl}/${realUrl}`;
   let options = Object.assign({
-    data:'',
+    data: '',
     header: {},
     method: 'GET',
     dataType: 'json',
@@ -11,7 +11,11 @@ const request = (realUrl, option = {}) => {
   return new Promise((resolve, reject) => {
     wx.request({
       url,
-      ...options,
+      data: options.data,
+      header: options.header,
+      method: options.method,
+      dataType: options.dataType,
+      responseType: options.responseType,
       success(res) {
         resolve(res);
       },

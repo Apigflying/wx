@@ -47,6 +47,9 @@ Component({
       console.log(songItem)
       let songItemString = toQueryString(songItem);
       // console.log(songItemString);
+      // wx.redirectTo({
+      //   url: `/pages/detail/detail?${songItemString}`,
+      // })
       wx.navigateTo({
         url: `/pages/detail/detail?${songItemString}`,
       })
