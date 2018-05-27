@@ -3,24 +3,27 @@ const { request } = require('./utils/fetch.js');
 const innerAudioContext = wx.createInnerAudioContext();
 // let ctrlBtnApp = null;
 // let isPlaying = !innerAudioContext.paused;
-innerAudioContext.onPlay(() => {
-  console.log('播放');
-})
-innerAudioContext.onPause(() => {
-  console.log('暂停')
-  // ctrlBtnApp(isPlaying)
-})
-innerAudioContext.onEnded(()=>{
-  console.log('播放完了')
-  // ctrlBtnApp(!isPlaying);
-})
+
 
 
 // console.log(app);
 App({
   onLaunch() {
-    // console.log('onLaunch');
-    // console.log(this);
+    innerAudioContext.onPlay(() => {
+      console.log('播放');
+      let footer = this.globalData.footer;
+      footer.changeBtn.call(footer,false);
+    })
+    innerAudioContext.onPause(() => {
+      console.log('暂停')
+      let footer = this.globalData.footer;
+      footer.changeBtn.call(footer, true);
+    })
+    innerAudioContext.onEnded(() => {
+      console.log('播放完了')
+      let footer = this.globalData.footer;
+      footer.changeBtn.call(footer, true);
+    })
   },
   onShow() {
     console.log('onShow');
@@ -31,7 +34,8 @@ App({
   },
   globalData: {
     innerAudioContext,
-    playSong: null
+    playSong: null,
+    footer:null
   },
   changePlayState() {
     let isPlaying = !innerAudioContext.paused; // 是否正在播放

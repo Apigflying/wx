@@ -8,16 +8,18 @@ Page({
   
   },
   toIndex(){
-    // wx.redirectTo({
-    //   url:'/pages/index/index'
-    // })
-    wx.navigateBack();
+    wx.redirectTo({
+      url:'/pages/index/index'
+    })
+    // wx.navigateBack();
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    wx.setNavigationBarTitle({
+      title: '搜索页'
+    })
   },
 
   /**
@@ -31,7 +33,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    
   },
 
   /**

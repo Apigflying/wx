@@ -1,7 +1,7 @@
 ﻿
 [TOC]
 
-#微信小程序开发1-项目结构及文件
+# 微信小程序开发1-项目结构及文件
 
 标签（空格分隔）： 微信开发
 
@@ -168,11 +168,13 @@ console.log(appInstance.globalData);
  + 一个页面只会调用一次，可以在 onLoad 中获取打开当前页面所调用的 query 参数。
 - onShow: 页面显示
  + 每次打开页面都会调用一次。
+ + **注：onShow是在小程序启动，或者从后台进入前台展示时，会执行的函数，如：按home键回到桌面，再从桌面回到小程序，就会触发此钩子函数**
 - onReady: 页面初次渲染完成
  + 一个页面只会调用一次，代表页面已经准备妥当，可以和视图层进行交互。
 对界面的设置如wx.setNavigationBarTitle请在onReady之后设置。详见生命周期
 - onHide: 页面隐藏
  + 当navigateTo或底部tab切换时调用。
+ + **当小程序从前台进入后台，如：按手机的home键，跳转到手机桌面，此时小程序会被隐藏，那么hide函数就会触发**
 - onUnload: 页面卸载
  + 当redirectTo或navigateBack的时候调用。
 
@@ -258,10 +260,11 @@ data:{
 
 ### 3.条件渲染
 ```javascript
-<view wx:if="{{flag}}"></view>
-data:{
-    falg:true
-}
+<view wx:if="{{length > 5}}"> 1 </view>
+<view wx:elif="{{length > 2}}"> 2 </view>
+<view wx:else> 3 </view>
+
+
 ```
 
 ### 4.模板渲染
@@ -304,7 +307,10 @@ Component({
     properties:{//从父组件内传递过来的参数
         innerText:{
             type:String,
-            value:'default value'
+            value:'default value',
+            observer:(newVal,oldVal)=>{
+                
+            }
         }
     },
     data:{
@@ -495,4 +501,40 @@ clickMe(val){
 "pages/index/index" does not have a method "clickMe(item)" to handle event "tap".
 ```
 
+# 微信小程序3-组件
+## 1.image组件
+>图片组件有mode属性，可以设置图片的展示模式
+该属性有剪裁和缩放的区分
+
+- 剪裁是会对原图片进行裁切
+- 缩放是根据固定比例，进行拉伸或缩放
+|mode|说明|
+|:-:|:-:|
+|widthFix|宽度不变，高度自动变化，保持原图宽高比不变|
+```javascript
+<image src="..." mode="widthFix"></image>
+```
+|属性|类型|默认值|说明|
+|:--:|:--:|:--:|:--:|
+|lazy-load|Boolean|false|图片懒加载。只针对page与scroll-view下的image有效|
+## 2.scroll-view
+>滚动组件容器
+
+## 3.音乐播放暂停的问题
+> innerAudioContext.paused 获取当前音乐播放的状态
+- true 表示暂停中
+- false 表示正在播放中
+
+在播放期间，控制播放和暂停，播放时获取到的状态是暂停即true
+```js
+const innerAudioContext = wx.createInnerAudioContext();
+let isPlaying = !innerAudioContext.paused; // 是否正在播放
+if (isPlaying) {
+  innerAudioContext.pause();
+} else {
+  innerAudioContext.play();
+};
+```
+解决办法：
+    给innerAudioContext添加onPlay和onPause事件。加上这两个事件之后，能够准确记录当前播放的状态
 

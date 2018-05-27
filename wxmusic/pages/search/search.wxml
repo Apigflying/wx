@@ -1,5 +1,15 @@
 <view>
-  这里是搜索页面
+  <view class="search-head">
+    <view class="back" bindtap="toIndex">
+      <image src="../../static/back.png" mode="aspectFit"></image>
+    </view>
+    <input placeholder="请填写要搜索的内容"></input>
+  </view>
+  <view class="search-singer">
+    <image src="../../static/singer.png" mode="aspectFit"></image>
+    <text>歌手分类</text>
+    <image src="../../static/arrow.png" mode="aspectFit"></image>
+  </view>
 
   <button bindtap="toIndex">跳转回到主页</button>
   <footer/>
